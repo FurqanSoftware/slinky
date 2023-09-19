@@ -26,6 +26,14 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantFacebookHjr265, must(url.Parse("https://facebook.com/hjr265"))),
 		},
 		{
+			in:   "https://floss.social/@hjr265",
+			want: wantWithURL(wantFLOSSSocialHjr265, must(url.Parse("https://floss.social/@hjr265"))),
+		},
+		{
+			in:   "https://fosstodon.org/@hjr265",
+			want: wantWithURL(wantFosstodonHjr265, must(url.Parse("https://fosstodon.org/@hjr265"))),
+		},
+		{
 			in:   "https://github.com/hjr265",
 			want: wantWithURL(wantGitHubHjr265, must(url.Parse("https://github.com/hjr265"))),
 		},
@@ -57,6 +65,24 @@ var (
 		ID:      "hjr265",
 		Data: map[string]string{
 			"username": "hjr265",
+		},
+	}
+	wantFLOSSSocialHjr265 = &URL{
+		Service: FLOSSSocial,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+			"platform": "Mastodon",
+		},
+	}
+	wantFosstodonHjr265 = &URL{
+		Service: Fosstodon,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+			"platform": "Mastodon",
 		},
 	}
 	wantGitHubHjr265 = &URL{

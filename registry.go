@@ -11,6 +11,12 @@ var (
 		"www.facebook.com": decodeFacebookURL,
 		"web.facebook.com": decodeFacebookURL,
 
+		// FLOSS.social
+		"floss.social": newMastodonURLDecoder(FLOSSSocial, "floss.social"),
+
+		// Fostodon
+		"fosstodon.org": newMastodonURLDecoder(Fosstodon, "fosstodon.org"),
+
 		// GitHub
 		"github.com": decodeGitHubURL,
 
@@ -26,8 +32,10 @@ var (
 type Service string
 
 const (
-	Facebook Service = "Facebook"
-	GitHub   Service = "GitHub"
-	LinkedIn Service = "LinkedIn"
-	Twitter  Service = "Twitter"
+	Facebook    Service = "Facebook"
+	FLOSSSocial Service = "FLOSSSocial"
+	Fosstodon   Service = "Fosstodon"
+	GitHub      Service = "GitHub"
+	LinkedIn    Service = "LinkedIn"
+	Twitter     Service = "Twitter"
 )
