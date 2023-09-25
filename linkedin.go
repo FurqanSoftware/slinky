@@ -21,7 +21,7 @@ func decodeLinkedInURL(url *url.URL) (*URL, error) {
 	}
 
 	path := strings.TrimSuffix(url.Path, "/")
-	if len(path) < 1 || len(path) > 15 || !strings.HasPrefix(path, "/in/") {
+	if len(path) < 1 || !strings.HasPrefix(path, "/in/") {
 		return nil, fmt.Errorf("%w: invalid LinkedIn path", ErrInvalidURL)
 	}
 

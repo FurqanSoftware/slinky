@@ -21,7 +21,7 @@ func decodeGitHubURL(url *url.URL) (*URL, error) {
 	}
 
 	path := strings.TrimSuffix(url.Path, "/")
-	if len(path) < 1 || len(path) > 15 || path[0] != '/' {
+	if len(path) < 1 || path[0] != '/' {
 		return nil, fmt.Errorf("%w: invalid GitHub path", ErrInvalidURL)
 	}
 
