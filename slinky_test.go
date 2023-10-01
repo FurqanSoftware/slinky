@@ -26,6 +26,10 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantFacebookHjr265, must(url.Parse("https://facebook.com/hjr265"))),
 		},
 		{
+			in:   "https://fb.me/hjr265",
+			want: wantWithURL(wantFacebookHjr265, must(url.Parse("https://fb.me/hjr265"))),
+		},
+		{
 			in:   "https://floss.social/@hjr265",
 			want: wantWithURL(wantFLOSSSocialHjr265, must(url.Parse("https://floss.social/@hjr265"))),
 		},

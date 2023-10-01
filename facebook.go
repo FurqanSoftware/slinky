@@ -9,6 +9,7 @@ import (
 // Facebook Profile/Page: ^https://www\.facebook.com/[A-Za-z0-9.]{1,50}/?$
 // Facebook Group: ^https://www\.facebook\.com/groups/[A-Za-z0-9.]{1,50}/?$
 // Facebook Profile: ^https://facebook.com/profile.php?id=$
+// Facebook Profile: ^https://fb.me/[A-Za-z0-9.]{1,50}$
 
 func decodeFacebookURL(url *url.URL) (*URL, error) {
 	if url.Scheme == "http" {
@@ -18,7 +19,7 @@ func decodeFacebookURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid Facebook scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "facebook.com" && url.Host != "www.facebook.com" && url.Host != "web.facebook.com" {
+	if url.Host != "facebook.com" && url.Host != "www.facebook.com" && url.Host != "web.facebook.com" && url.Host != "fb.me" {
 		return nil, fmt.Errorf("%w: invalid Facebook host", ErrInvalidURL)
 	}
 
