@@ -10,6 +10,7 @@ var (
 		"facebook.com":     decodeFacebookURL,
 		"www.facebook.com": decodeFacebookURL,
 		"web.facebook.com": decodeFacebookURL,
+		"fb.me":            decodeFacebookURL,
 
 		// FLOSS.social
 		"floss.social": newMastodonURLDecoder(FLOSSSocial, "floss.social"),
