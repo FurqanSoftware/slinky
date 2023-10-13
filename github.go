@@ -16,29 +16,47 @@ func decodeGitHubURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid GitHub scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "github.com" {
+	switch {
+	case url.Host == "github.com":
+		path := strings.TrimSuffix(url.Path, "/")
+		if len(path) < 1 || path[0] != '/' {
+			return nil, fmt.Errorf("%w: invalid GitHub path", ErrInvalidURL)
+		}
+
+		username := strings.TrimPrefix(path, "/")
+		if strings.ContainsFunc(username, isNotGitHubHandleRune) {
+			return nil, fmt.Errorf("%w: invalid GitHub username", ErrInvalidURL)
+		}
+
+		return &URL{
+			Service: GitHub,
+			Type:    "User",
+			ID:      username,
+			Data: map[string]string{
+				"username": username,
+			},
+			URL: url,
+		}, nil
+
+	case strings.HasSuffix(url.Host, ".github.io"):
+		username := strings.TrimSuffix(url.Host, ".github.io")
+		if strings.ContainsFunc(username, isNotGitHubHandleRune) {
+			return nil, fmt.Errorf("%w: invalid GitHub username", ErrInvalidURL)
+		}
+
+		return &URL{
+			Service: GitHub,
+			Type:    "User",
+			ID:      username,
+			Data: map[string]string{
+				"username": username,
+			},
+			URL: url,
+		}, nil
+
+	default:
 		return nil, fmt.Errorf("%w: invalid GitHub host", ErrInvalidURL)
 	}
-
-	path := strings.TrimSuffix(url.Path, "/")
-	if len(path) < 1 || path[0] != '/' {
-		return nil, fmt.Errorf("%w: invalid GitHub path", ErrInvalidURL)
-	}
-
-	username := strings.TrimPrefix(path, "/")
-	if strings.ContainsFunc(username, isNotGitHubHandleRune) {
-		return nil, fmt.Errorf("%w: invalid GitHub username", ErrInvalidURL)
-	}
-
-	return &URL{
-		Service: GitHub,
-		Type:    "User",
-		ID:      username,
-		Data: map[string]string{
-			"username": username,
-		},
-		URL: url,
-	}, nil
 }
 
 const githubHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789-"

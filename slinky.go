@@ -2,6 +2,7 @@ package slinky
 
 import (
 	"net/url"
+	"strings"
 )
 
 // A URL represents a parsed social media URL.
@@ -25,9 +26,20 @@ func Parse(rawURL string) (*URL, error) {
 		return nil, ErrNotAbsolute
 	}
 
-	decodeFunc, ok := decodeURLFuncs[url.Host]
-	if !ok {
-		return nil, ErrUnknownService
+	for _, pattern := range hostPatterns(url.Host, 1) {
+		decodeFunc, ok := decodeURLFuncs[pattern]
+		if ok {
+			return decodeFunc(url)
+		}
 	}
-	return decodeFunc(url)
+	return nil, ErrUnknownService
+}
+
+func hostPatterns(host string, maxWildcards int) []string {
+	parts := strings.Split(host, ".")
+	patterns := make([]string, 0, len(parts)-1)
+	for i := 0; i <= maxWildcards && i < len(parts)-1; i++ {
+		patterns = append(patterns, strings.Repeat("*.", i)+strings.Join(parts[i:], "."))
+	}
+	return patterns
 }

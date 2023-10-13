@@ -2,6 +2,7 @@ package slinky
 
 import (
 	"net/url"
+	"reflect"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -40,6 +41,10 @@ func TestParse(t *testing.T) {
 		{
 			in:   "https://github.com/hjr265",
 			want: wantWithURL(wantGitHubHjr265, must(url.Parse("https://github.com/hjr265"))),
+		},
+		{
+			in:   "https://hjr265.github.io",
+			want: wantWithURL(wantGitHubHjr265, must(url.Parse("https://hjr265.github.io"))),
 		},
 		{
 			in:   "https://www.linkedin.com/in/hjr265/",
@@ -132,6 +137,35 @@ func wantWithURL(want *URL, url *url.URL) *URL {
 	copy := *want
 	copy.URL = url
 	return &copy
+}
+
+func TestHostPatterns(t *testing.T) {
+	for _, c := range []struct {
+		host         string
+		maxWildcards int
+		want         []string
+	}{
+		{
+			host:         "hjr265.github.io",
+			maxWildcards: 1,
+			want:         []string{"hjr265.github.io", "*.github.io"},
+		},
+		{
+			host:         "keyboard.cat.example.com",
+			maxWildcards: 1,
+			want:         []string{"keyboard.cat.example.com", "*.cat.example.com"},
+		},
+		{
+			host:         "keyboard.cat.example.com",
+			maxWildcards: 2,
+			want:         []string{"keyboard.cat.example.com", "*.cat.example.com", "*.*.example.com"},
+		},
+	} {
+		got := hostPatterns(c.host, c.maxWildcards)
+		if !reflect.DeepEqual(got, c.want) {
+			t.Fatalf("want %v, got %v", c.want, got)
+		}
+	}
 }
 
 func must(url *url.URL, err error) *url.URL {

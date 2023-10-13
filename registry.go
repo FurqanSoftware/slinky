@@ -19,7 +19,8 @@ var (
 		"fosstodon.org": newMastodonURLDecoder(Fosstodon, "fosstodon.org"),
 
 		// GitHub
-		"github.com": decodeGitHubURL,
+		"github.com":  decodeGitHubURL,
+		"*.github.io": decodeGitHubURL,
 
 		// LinkedIn
 		"linkedin.com":     decodeLinkedInURL,
