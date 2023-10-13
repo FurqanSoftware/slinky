@@ -19,6 +19,37 @@ slinky.Parse("https://github.com/hjr265")
 //	}
 ```
 
+## URLs Supported
+
+``` go
+// Facebook
+"facebook.com"
+"www.facebook.com"
+"web.facebook.com"
+"fb.me"
+
+// FLOSS.social
+"floss.social"
+
+// Fostodon
+"fosstodon.org"
+
+// GitHub
+"github.com"
+"*.github.io"
+
+// Instagram
+"instagram.com"
+"www.instagram.com"
+
+// LinkedIn
+"linkedin.com"
+"www.linkedin.com"
+
+// Twitter
+"twitter.com"
+```
+
 ## Contributing
 
 Contributions are welcome.
