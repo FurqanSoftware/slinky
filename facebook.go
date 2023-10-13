@@ -24,28 +24,53 @@ func decodeFacebookURL(url *url.URL) (*URL, error) {
 	}
 
 	path := strings.TrimSuffix(url.Path, "/")
-	if len(path) < 1 || path[0] != '/' {
-		return nil, fmt.Errorf("%w: invalid Facebook path", ErrInvalidURL)
-	}
+	switch {
+	case path == "/profile.php":
+		profileID := url.Query().Get("id")
+		if strings.ContainsFunc(profileID, isNotFacebookProfileIDRune) {
+			return nil, fmt.Errorf("%w: invalid Facebook profile ID", ErrInvalidURL)
+		}
 
-	username := strings.TrimPrefix(path, "/")
-	if strings.ContainsFunc(username, isNotFacebookHandleRune) {
-		return nil, fmt.Errorf("%w: invalid Facebook username", ErrInvalidURL)
-	}
+		return &URL{
+			Service: Facebook,
+			Type:    "Profile", // This could be a page as well.
+			ID:      profileID,
+			Data: map[string]string{
+				"profileID": profileID,
+			},
+			URL: url,
+		}, nil
 
-	return &URL{
-		Service: Facebook,
-		Type:    "Profile", // This could be a page as well.
-		ID:      username,
-		Data: map[string]string{
-			"username": username,
-		},
-		URL: url,
-	}, nil
+	default:
+		if len(path) < 1 || path[0] != '/' {
+			return nil, fmt.Errorf("%w: invalid Facebook path", ErrInvalidURL)
+		}
+
+		username := strings.TrimPrefix(path, "/")
+		if strings.ContainsFunc(username, isNotFacebookHandleRune) {
+			return nil, fmt.Errorf("%w: invalid Facebook username", ErrInvalidURL)
+		}
+
+		return &URL{
+			Service: Facebook,
+			Type:    "Profile", // This could be a page as well.
+			ID:      username,
+			Data: map[string]string{
+				"username": username,
+			},
+			URL: url,
+		}, nil
+	}
 }
 
 const facebookHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789."
 
 func isNotFacebookHandleRune(r rune) bool {
 	return !strings.ContainsRune(facebookHandleAlpha, r)
+}
+
+const facebookProfileIDAlpha = "0123456789"
+
+func isNotFacebookProfileIDRune(r rune) bool {
+	return !strings.ContainsRune(facebookProfileIDAlpha, r)
 }

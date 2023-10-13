@@ -1,6 +1,7 @@
 package slinky
 
 import (
+	"errors"
 	"net/url"
 	"reflect"
 	"testing"
@@ -59,6 +60,10 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantFacebookIAmKeyboardCat, must(url.Parse("https://www.facebook.com/I.AM.KEYBOARDCAT/"))),
 		},
 		{
+			in:   "https://www.facebook.com/profile.php?id=100000000000001",
+			want: wantWithURL(wantFacebookIAmKeyboardCatProfileID, must(url.Parse("https://www.facebook.com/profile.php?id=100000000000001"))),
+		},
+		{
 			in:   "https://www.instagram.com/I.AM.KEYBOARDCAT/",
 			want: wantWithURL(wantInstagramIAmKeyboardCat, must(url.Parse("https://www.instagram.com/I.AM.KEYBOARDCAT/"))),
 		},
@@ -73,8 +78,10 @@ func TestParse(t *testing.T) {
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
-			if !cmp.Equal(c.wantErr, err) {
-				t.Fatal(cmp.Diff(c.wantErr, err))
+			if c.wantErr != nil {
+				if !errors.Is(err, c.wantErr) {
+					t.Fatalf("want error %q, got %q", c.wantErr, err)
+				}
 			}
 			if !cmp.Equal(c.want, got) {
 				t.Fatal(cmp.Diff(c.want, got))
@@ -141,6 +148,14 @@ var (
 		ID:      "I.AM.KEYBOARDCAT",
 		Data: map[string]string{
 			"username": "I.AM.KEYBOARDCAT",
+		},
+	}
+	wantFacebookIAmKeyboardCatProfileID = &URL{
+		Service: Facebook,
+		Type:    "Profile",
+		ID:      "100000000000001",
+		Data: map[string]string{
+			"profileID": "100000000000001",
 		},
 	}
 	wantInstagramIAmKeyboardCat = &URL{
