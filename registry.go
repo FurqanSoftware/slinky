@@ -22,6 +22,10 @@ var (
 		"github.com":  decodeGitHubURL,
 		"*.github.io": decodeGitHubURL,
 
+		// Instagram
+		"instagram.com":     decodeInstagramURL,
+		"www.instagram.com": decodeInstagramURL,
+
 		// LinkedIn
 		"linkedin.com":     decodeLinkedInURL,
 		"www.linkedin.com": decodeLinkedInURL,
@@ -38,6 +42,7 @@ const (
 	FLOSSSocial Service = "FLOSSSocial"
 	Fosstodon   Service = "Fosstodon"
 	GitHub      Service = "GitHub"
+	Instagram   Service = "Instagram"
 	LinkedIn    Service = "LinkedIn"
 	Twitter     Service = "Twitter"
 )

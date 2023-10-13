@@ -58,6 +58,10 @@ func TestParse(t *testing.T) {
 			in:   "https://www.facebook.com/I.AM.KEYBOARDCAT/",
 			want: wantWithURL(wantFacebookIAmKeyboardCat, must(url.Parse("https://www.facebook.com/I.AM.KEYBOARDCAT/"))),
 		},
+		{
+			in:   "https://www.instagram.com/I.AM.KEYBOARDCAT/",
+			want: wantWithURL(wantInstagramIAmKeyboardCat, must(url.Parse("https://www.instagram.com/I.AM.KEYBOARDCAT/"))),
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -125,6 +129,14 @@ var (
 	}
 	wantFacebookIAmKeyboardCat = &URL{
 		Service: Facebook,
+		Type:    "Profile",
+		ID:      "I.AM.KEYBOARDCAT",
+		Data: map[string]string{
+			"username": "I.AM.KEYBOARDCAT",
+		},
+	}
+	wantInstagramIAmKeyboardCat = &URL{
+		Service: Instagram,
 		Type:    "Profile",
 		ID:      "I.AM.KEYBOARDCAT",
 		Data: map[string]string{
