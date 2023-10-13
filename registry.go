@@ -30,6 +30,9 @@ var (
 		"linkedin.com":     decodeLinkedInURL,
 		"www.linkedin.com": decodeLinkedInURL,
 
+		// Telegram
+		"t.me": decodeTelegramURL,
+
 		// Twitter
 		"twitter.com": decodeTwitterURL,
 
@@ -48,6 +51,7 @@ const (
 	GitHub      Service = "GitHub"
 	Instagram   Service = "Instagram"
 	LinkedIn    Service = "LinkedIn"
+	Telegram    Service = "Telegram"
 	Twitter     Service = "Twitter"
 	YouTube     Service = "YouTube"
 )

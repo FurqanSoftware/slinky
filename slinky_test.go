@@ -52,6 +52,14 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantLinkedInHjr265, must(url.Parse("https://www.linkedin.com/in/hjr265/"))),
 		},
 		{
+			in:   "https://t.me/hjr265",
+			want: wantWithURL(wantTelegramHjr265, must(url.Parse("https://t.me/hjr265"))),
+		},
+		{
+			in:   "https://t.me/+100000000000001",
+			want: wantWithURL(wantTelegramKeyboardCatPhoneNumber, must(url.Parse("https://t.me/+100000000000001"))),
+		},
+		{
 			in:   "https://twitter.com/hjr265",
 			want: wantWithURL(wantTwitterHjr265, must(url.Parse("https://twitter.com/hjr265"))),
 		},
@@ -82,6 +90,8 @@ func TestParse(t *testing.T) {
 				if !errors.Is(err, c.wantErr) {
 					t.Fatalf("want error %q, got %q", c.wantErr, err)
 				}
+			} else if err != nil {
+				t.Fatal(err)
 			}
 			if !cmp.Equal(c.want, got) {
 				t.Fatal(cmp.Diff(c.want, got))
@@ -133,6 +143,22 @@ var (
 			"username": "hjr265",
 		},
 		URL: must(url.Parse("https://www.linkedin.com/in/hjr265/")),
+	}
+	wantTelegramHjr265 = &URL{
+		Service: Telegram,
+		Type:    "Account",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantTelegramKeyboardCatPhoneNumber = &URL{
+		Service: Telegram,
+		Type:    "Account",
+		ID:      "+100000000000001",
+		Data: map[string]string{
+			"phoneNumber": "+100000000000001",
+		},
 	}
 	wantTwitterHjr265 = &URL{
 		Service: Twitter,

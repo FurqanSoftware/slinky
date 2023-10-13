@@ -46,6 +46,9 @@ slinky.Parse("https://github.com/hjr265")
 "linkedin.com"
 "www.linkedin.com"
 
+// Telegram
+"t.me"
+
 // Twitter
 "twitter.com"
 
