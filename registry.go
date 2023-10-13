@@ -32,6 +32,10 @@ var (
 
 		// Twitter
 		"twitter.com": decodeTwitterURL,
+
+		// YouTube
+		"youtube.com":     decodeYouTubeURL,
+		"www.youtube.com": decodeYouTubeURL,
 	}
 )
 
@@ -45,4 +49,5 @@ const (
 	Instagram   Service = "Instagram"
 	LinkedIn    Service = "LinkedIn"
 	Twitter     Service = "Twitter"
+	YouTube     Service = "YouTube"
 )

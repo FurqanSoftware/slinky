@@ -48,6 +48,10 @@ slinky.Parse("https://github.com/hjr265")
 
 // Twitter
 "twitter.com"
+
+// YouTube
+"youtube.com"
+"www.youtube.com"
 ```
 
 ## Contributing
