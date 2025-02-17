@@ -19,7 +19,6 @@ func decodeTwitterURL(url *url.URL) (*URL, error) {
 	if url.Host != "x.com" && url.Host != "twitter.com" {
 		return nil, fmt.Errorf("%w: invalid Twitter host", ErrInvalidURL)
 	}
-	url.Host = "x.com"
 
 	path := strings.TrimSuffix(url.Path, "/")
 	if len(path) < 1 || path[0] != '/' {
