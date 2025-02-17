@@ -16,9 +16,10 @@ func decodeTwitterURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid Twitter scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "twitter.com" {
+	if url.Host != "x.com" && url.Host != "twitter.com" {
 		return nil, fmt.Errorf("%w: invalid Twitter host", ErrInvalidURL)
 	}
+	url.Host = "x.com"
 
 	path := strings.TrimSuffix(url.Path, "/")
 	if len(path) < 1 || path[0] != '/' {

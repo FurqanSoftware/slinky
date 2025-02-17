@@ -34,6 +34,7 @@ var (
 		"t.me": decodeTelegramURL,
 
 		// Twitter
+		"x.com":       decodeTwitterURL,
 		"twitter.com": decodeTwitterURL,
 
 		// YouTube
