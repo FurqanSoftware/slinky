@@ -65,7 +65,7 @@ func TestParse(t *testing.T) {
 		},
 		{
 			in:   "https://twitter.com/hjr265",
-			want: wantWithURL(wantTwitterHjr265, must(url.Parse("https://x.com/hjr265"))),
+			want: wantWithURL(wantTwitterHjr265, must(url.Parse("https://twitter.com/hjr265"))),
 		},
 		{
 			in:   "https://www.facebook.com/I.AM.KEYBOARDCAT/",
