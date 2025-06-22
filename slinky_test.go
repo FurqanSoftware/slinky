@@ -96,6 +96,14 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantYouTubeIAmKeyboardCat, must(url.Parse("https://www.youtube.com/I-AM_KEYBOARDCAT"))),
 		},
 		{
+			in:   "https://www.reddit.com/user/Acceptable-Mix8356/",
+			want: wantWithURL(wantRedditAcceptableMix8356, must(url.Parse("https://www.reddit.com/user/Acceptable-Mix8356/"))),
+		},
+		{
+			in:   "https://www.reddit.com/r/idk_1_52/",
+			want: wantWithURL(wantSubRedditIdk152, must(url.Parse("https://www.reddit.com/r/idk_1_52/"))),
+		},
+		{
 			in:   "https://www.pinterest.com/rayed152/",
 			want: wantWithURL(wantPinterestRayed152, must(url.Parse("https://www.pinterest.com/rayed152/"))),
 		},
@@ -218,6 +226,22 @@ var (
 		ID:      "I-AM_KEYBOARDCAT",
 		Data: map[string]string{
 			"channelID": "I-AM_KEYBOARDCAT",
+		},
+	}
+	wantRedditAcceptableMix8356 = &URL{
+		Service: Reddit,
+		Type:    "User",
+		ID:      "Acceptable-Mix8356",
+		Data: map[string]string{
+			"username": "Acceptable-Mix8356",
+		},
+	}
+	wantSubRedditIdk152 = &URL{
+		Service: Reddit,
+		Type:    "Subreddit",
+		ID:      "idk_1_52",
+		Data: map[string]string{
+			"username": "idk_1_52",
 		},
 	}
 	wantPinterestRayed152 = &URL{
