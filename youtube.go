@@ -26,6 +26,8 @@ func decodeYouTubeURL(url *url.URL) (*URL, error) {
 	}
 
 	channel := strings.TrimPrefix(path, "/")
+	channel = strings.TrimPrefix(channel, "@")
+
 	if strings.ContainsFunc(channel, isNotYouTubeHandleRune) {
 		return nil, fmt.Errorf("%w: invalid YouTube channel ID", ErrInvalidURL)
 	}
