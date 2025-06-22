@@ -22,7 +22,6 @@ var (
 		"github.com":  decodeGitHubURL,
 		"*.github.io": decodeGitHubURL,
 
-
 		// Instagram
 		"instagram.com":     decodeInstagramURL,
 		"www.instagram.com": decodeInstagramURL,
@@ -30,6 +29,10 @@ var (
 		// LinkedIn
 		"linkedin.com":     decodeLinkedInURL,
 		"www.linkedin.com": decodeLinkedInURL,
+
+		// Pinterest
+		"pinterest.com":     decodePinterestURL,
+		"www.pinterest.com": decodePinterestURL,
 
 		// Telegram
 		"t.me": decodeTelegramURL,
@@ -55,6 +58,7 @@ const (
 	GitHub      Service = "GitHub"
 	Instagram   Service = "Instagram"
 	LinkedIn    Service = "LinkedIn"
+	Pinterest   Service = "Pinterest"
 	Telegram    Service = "Telegram"
 	Twitter     Service = "Twitter"
 	YouTube     Service = "YouTube"
