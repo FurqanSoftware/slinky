@@ -95,6 +95,10 @@ func TestParse(t *testing.T) {
 			in:   "https://www.youtube.com/I-AM_KEYBOARDCAT",
 			want: wantWithURL(wantYouTubeIAmKeyboardCat, must(url.Parse("https://www.youtube.com/I-AM_KEYBOARDCAT"))),
 		},
+		{
+			in:   "https://www.youtube.com/@MahmudRayed",
+			want: wantWithURL(wantYouTubeMahmudRayed, must(url.Parse("https://www.youtube.com/@MahmudRayed"))),
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -210,6 +214,14 @@ var (
 		ID:      "I-AM_KEYBOARDCAT",
 		Data: map[string]string{
 			"channelID": "I-AM_KEYBOARDCAT",
+		},
+	}
+	wantYouTubeMahmudRayed = &URL{
+		Service: YouTube,
+		Type:    "Channel",
+		ID:      "MahmudRayed",
+		Data: map[string]string{
+			"channelID": "MahmudRayed",
 		},
 	}
 )
