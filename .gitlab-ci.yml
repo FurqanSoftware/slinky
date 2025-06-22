@@ -1,0 +1,14 @@
+before_script:
+  - mkdir -p $GOPATH/src/git.furqansoftware.net/trinkets
+  - ln -s $CI_PROJECT_DIR $GOPATH/src/git.furqansoftware.net/trinkets/slinky
+  - cd $GOPATH/src/git.furqansoftware.net/trinkets/slinky
+
+stages:
+  - test
+
+test go-1.24:
+  image: golang:1.24.2
+  stage: test
+  script:
+    - go get .
+    - go test -cover -v .
