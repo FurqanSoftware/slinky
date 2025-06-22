@@ -60,8 +60,16 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantTelegramKeyboardCatPhoneNumber, must(url.Parse("https://t.me/+100000000000001"))),
 		},
 		{
+			in:   "https://www.x.com/hjr265",
+			want: wantWithURL(wantTwitterHjr265, must(url.Parse("https://www.x.com/hjr265"))),
+		},
+		{
 			in:   "https://x.com/hjr265",
 			want: wantWithURL(wantTwitterHjr265, must(url.Parse("https://x.com/hjr265"))),
+		},
+		{
+			in:   "https://www.twitter.com/hjr265",
+			want: wantWithURL(wantTwitterHjr265, must(url.Parse("https://www.twitter.com/hjr265"))),
 		},
 		{
 			in:   "https://twitter.com/hjr265",

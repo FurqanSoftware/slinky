@@ -16,7 +16,7 @@ func decodeTwitterURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid Twitter scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "x.com" && url.Host != "twitter.com" {
+	if url.Host != "x.com" && url.Host != "www.x.com" && url.Host != "twitter.com" && url.Host != "www.twitter.com" {
 		return nil, fmt.Errorf("%w: invalid Twitter host", ErrInvalidURL)
 	}
 

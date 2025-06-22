@@ -1,6 +1,6 @@
 # Slinky
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/FurqanSoftware/slinky.svg)](https://pkg.go.dev/github.com/FurqanSoftware/slinky) 
+[![Go Reference](https://pkg.go.dev/badge/github.com/FurqanSoftware/slinky.svg)](https://pkg.go.dev/github.com/FurqanSoftware/slinky)
 
 Parse social media URLs in Go.
 
@@ -50,7 +50,10 @@ slinky.Parse("https://github.com/hjr265")
 "t.me"
 
 // Twitter
+"x.com"
+"www.x.com"
 "twitter.com"
+"www.twitter.com"
 
 // YouTube
 "youtube.com"

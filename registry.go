@@ -22,6 +22,7 @@ var (
 		"github.com":  decodeGitHubURL,
 		"*.github.io": decodeGitHubURL,
 
+
 		// Instagram
 		"instagram.com":     decodeInstagramURL,
 		"www.instagram.com": decodeInstagramURL,
@@ -34,8 +35,10 @@ var (
 		"t.me": decodeTelegramURL,
 
 		// Twitter
-		"x.com":       decodeTwitterURL,
-		"twitter.com": decodeTwitterURL,
+		"x.com":           decodeTwitterURL,
+		"www.x.com":       decodeTwitterURL,
+		"twitter.com":     decodeTwitterURL,
+		"www.twitter.com": decodeTwitterURL,
 
 		// YouTube
 		"youtube.com":     decodeYouTubeURL,
