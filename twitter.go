@@ -26,6 +26,9 @@ func decodeTwitterURL(url *url.URL) (*URL, error) {
 	}
 
 	username := strings.TrimPrefix(path, "/")
+	if len(username) < 1 || len(username) > 15 {
+		return nil, fmt.Errorf("%w: invalid Twitter username length", ErrInvalidURL)
+	}
 	if strings.ContainsFunc(username, isNotTwitterHandleRune) {
 		return nil, fmt.Errorf("%w: invalid Twitter username", ErrInvalidURL)
 	}

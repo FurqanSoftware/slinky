@@ -26,6 +26,9 @@ func decodeInstagramURL(url *url.URL) (*URL, error) {
 	}
 
 	username := strings.TrimPrefix(path, "/")
+	if len(username) < 1 || len(username) > 30 {
+		return nil, fmt.Errorf("%w: invalid Instagram username length", ErrInvalidURL)
+	}
 	if strings.ContainsFunc(username, isNotInstagramHandleRune) {
 		return nil, fmt.Errorf("%w: invalid Instagram username", ErrInvalidURL)
 	}

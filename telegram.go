@@ -29,6 +29,9 @@ func decodeTelegramURL(url *url.URL) (*URL, error) {
 		}
 
 		phoneNumber := strings.TrimPrefix(path, "/")
+		if len(phoneNumber) < 1 || len(phoneNumber) > 16 {
+			return nil, fmt.Errorf("%w: invalid Telegram phone number length", ErrInvalidURL)
+		}
 		if strings.ContainsFunc(phoneNumber, isNotTelegramPhoneNumberRune) {
 			return nil, fmt.Errorf("%w: invalid Telegram phone number", ErrInvalidURL)
 		}
@@ -49,6 +52,9 @@ func decodeTelegramURL(url *url.URL) (*URL, error) {
 		}
 
 		username := strings.TrimPrefix(path, "/")
+		if len(username) < 5 || len(username) > 32 {
+			return nil, fmt.Errorf("%w: invalid Telegram username length", ErrInvalidURL)
+		}
 		if strings.ContainsFunc(username, isNotTelegramHandleRune) {
 			return nil, fmt.Errorf("%w: invalid Telegram username", ErrInvalidURL)
 		}

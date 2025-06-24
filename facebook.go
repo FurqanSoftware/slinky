@@ -27,6 +27,7 @@ func decodeFacebookURL(url *url.URL) (*URL, error) {
 	switch {
 	case path == "/profile.php":
 		profileID := url.Query().Get("id")
+
 		if strings.ContainsFunc(profileID, isNotFacebookProfileIDRune) {
 			return nil, fmt.Errorf("%w: invalid Facebook profile ID", ErrInvalidURL)
 		}
@@ -47,6 +48,9 @@ func decodeFacebookURL(url *url.URL) (*URL, error) {
 		}
 
 		username := strings.TrimPrefix(path, "/")
+		if len(username) < 1 || len(username) > 50 {
+			return nil, fmt.Errorf("%w: invalid Facebook username length", ErrInvalidURL)
+		}
 		if strings.ContainsFunc(username, isNotFacebookHandleRune) {
 			return nil, fmt.Errorf("%w: invalid Facebook username", ErrInvalidURL)
 		}
