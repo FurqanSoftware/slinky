@@ -28,6 +28,10 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantFacebookHjr265, must(url.Parse("https://facebook.com/hjr265"))),
 		},
 		{
+			in:      "https://facebook.com/mahmud.rayed.152111111111111212121312121212123414444/",
+			wantErr: ErrInvalidURL,
+		},
+		{
 			in:   "https://fb.me/hjr265",
 			want: wantWithURL(wantFacebookHjr265, must(url.Parse("https://fb.me/hjr265"))),
 		},
@@ -38,6 +42,10 @@ func TestParse(t *testing.T) {
 		{
 			in:   "https://fosstodon.org/@hjr265",
 			want: wantWithURL(wantFosstodonHjr265, must(url.Parse("https://fosstodon.org/@hjr265"))),
+		},
+		{
+			in:      "https://fosstodon.org/@rayed15211111111",
+			wantErr: ErrInvalidURL,
 		},
 		{
 			in:   "https://github.com/hjr265",
@@ -56,8 +64,16 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantTelegramHjr265, must(url.Parse("https://t.me/hjr265"))),
 		},
 		{
+			in:      "https://t.me/rayed152152111111111111212121312121212123414444/",
+			wantErr: ErrInvalidURL,
+		},
+		{
 			in:   "https://t.me/+100000000000001",
 			want: wantWithURL(wantTelegramKeyboardCatPhoneNumber, must(url.Parse("https://t.me/+100000000000001"))),
+		},
+		{
+			in:      "https://t.me/+1000000000000011",
+			wantErr: ErrInvalidURL,
 		},
 		{
 			in:   "https://www.x.com/hjr265",
@@ -76,6 +92,18 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantTwitterHjr265, must(url.Parse("https://twitter.com/hjr265"))),
 		},
 		{
+			in:      "https://www.twitter.com/rayed15211111111111111111111111",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://twitter.com/rayed15211111111111111111111111",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://x.com/rayed15211111111111111111111111",
+			wantErr: ErrInvalidURL,
+		},
+		{
 			in:   "https://www.facebook.com/I.AM.KEYBOARDCAT/",
 			want: wantWithURL(wantFacebookIAmKeyboardCat, must(url.Parse("https://www.facebook.com/I.AM.KEYBOARDCAT/"))),
 		},
@@ -86,6 +114,10 @@ func TestParse(t *testing.T) {
 		{
 			in:   "https://www.instagram.com/I.AM.KEYBOARDCAT/",
 			want: wantWithURL(wantInstagramIAmKeyboardCat, must(url.Parse("https://www.instagram.com/I.AM.KEYBOARDCAT/"))),
+		},
+		{
+			in:      "https://www.instagram.com/rayed15211111111111111111111111/",
+			wantErr: ErrInvalidURL,
 		},
 		{
 			in:   "https://youtube.com/I-AM_KEYBOARDCAT",
@@ -100,6 +132,10 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantRedditAcceptableMix8356, must(url.Parse("https://www.reddit.com/user/Acceptable-Mix8356/"))),
 		},
 		{
+			in:      "https://www.reddit.com/user/Acceptable-Mix8356111/",
+			wantErr: ErrInvalidURL,
+		},
+		{
 			in:   "https://www.reddit.com/r/idk_1_52/",
 			want: wantWithURL(wantSubRedditIdk152, must(url.Parse("https://www.reddit.com/r/idk_1_52/"))),
 		},
@@ -108,8 +144,20 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantPinterestRayed152, must(url.Parse("https://www.pinterest.com/rayed152/"))),
 		},
 		{
+			in:      "https://www.pinterest.com/rayed15211111111111111111111111/",
+			wantErr: ErrInvalidURL,
+		},
+		{
 			in:   "https://www.youtube.com/@MahmudRayed",
 			want: wantWithURL(wantYouTubeMahmudRayed, must(url.Parse("https://www.youtube.com/@MahmudRayed"))),
+		},
+		{
+			in:      "https://www.youtube.com/@rayed15211111111111111111111111111111111111111111111111",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://www.linkedin.com/in/rayed152111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111/",
+			wantErr: ErrInvalidURL,
 		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
@@ -135,6 +183,14 @@ var (
 		ID:      "hjr265",
 		Data: map[string]string{
 			"username": "hjr265",
+		},
+	}
+	wantFacebookMahmudrayed152 = &URL{
+		Service: Facebook,
+		Type:    "Profile",
+		ID:      "mahmud.rayed.152111111111111212121312121212123414444",
+		Data: map[string]string{
+			"username": "mahmud.rayed.152111111111111212121312121212123414444",
 		},
 	}
 	wantFLOSSSocialHjr265 = &URL{
@@ -220,6 +276,14 @@ var (
 			"username": "I.AM.KEYBOARDCAT",
 		},
 	}
+	wantInstagramRayed152 = &URL{
+		Service: Instagram,
+		Type:    "Profile",
+		ID:      "rayed15211111111111111111111111",
+		Data: map[string]string{
+			"username": "rayed15211111111111111111111111",
+		},
+	}
 	wantYouTubeIAmKeyboardCat = &URL{
 		Service: YouTube,
 		Type:    "Channel",
@@ -234,6 +298,14 @@ var (
 		ID:      "Acceptable-Mix8356",
 		Data: map[string]string{
 			"username": "Acceptable-Mix8356",
+		},
+	}
+	wantRedditAcceptableMix8356111 = &URL{
+		Service: Reddit,
+		Type:    "User",
+		ID:      "Acceptable-Mix8356111",
+		Data: map[string]string{
+			"username": "Acceptable-Mix8356111",
 		},
 	}
 	wantSubRedditIdk152 = &URL{

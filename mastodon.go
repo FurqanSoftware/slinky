@@ -27,6 +27,9 @@ func newMastodonURLDecoder(service Service, host string) decodeURLFunc {
 		}
 
 		username := strings.TrimPrefix(path, "/@")
+		if len(username) < 3 || len(username) > 15 {
+			return nil, fmt.Errorf("%w: invalid Mastodon username length", ErrInvalidURL)
+		}
 		if strings.ContainsFunc(username, isNotMastodonHandleRune) {
 			return nil, fmt.Errorf("%w: invalid Mastodon username", ErrInvalidURL)
 		}

@@ -39,6 +39,9 @@ func decodeRedditURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid Reddit path", ErrInvalidURL)
 	}
 
+	if len(username) < 3 || len(username) > 20 {
+		return nil, fmt.Errorf("%w: invalid Reddit username length", ErrInvalidURL)
+	}
 	if strings.ContainsFunc(username, isNotRedditHandleRune) {
 		return nil, fmt.Errorf("%w: invalid Reddit username", ErrInvalidURL)
 	}

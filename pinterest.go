@@ -26,6 +26,9 @@ func decodePinterestURL(url *url.URL) (*URL, error) {
 	}
 
 	username := strings.TrimPrefix(path, "/")
+	if len(username) < 3 || len(username) > 30 {
+		return nil, fmt.Errorf("%w: invalid Pinterest username length", ErrInvalidURL)
+	}
 	if strings.ContainsFunc(username, isNotPinterestHandleRune) {
 		return nil, fmt.Errorf("%w: invalid Pinterest username", ErrInvalidURL)
 	}

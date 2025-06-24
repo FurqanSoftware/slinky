@@ -26,6 +26,12 @@ func decodeLinkedInURL(url *url.URL) (*URL, error) {
 	}
 
 	username := strings.TrimPrefix(path, "/in/")
+	if len(username) < 3 || len(username) > 100 {
+		return nil, fmt.Errorf("%w: invalid Linkedin username length", ErrInvalidURL)
+	}
+	if strings.ContainsFunc(username, isNotLinkedInHandleRune) {
+		return nil, fmt.Errorf("%w: invalid Linkedin username", ErrInvalidURL)
+	}
 
 	return &URL{
 		Service: LinkedIn,
