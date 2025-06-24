@@ -152,6 +152,10 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantYouTubeMahmudRayed, must(url.Parse("https://www.youtube.com/@MahmudRayed"))),
 		},
 		{
+			in:   "https://m.me/6585231744937052",
+			want: wantWithURL(wantMessengerMahmudRayed, must(url.Parse("https://m.me/6585231744937052"))),
+		},
+		{
 			in:      "https://www.youtube.com/@rayed15211111111111111111111111111111111111111111111111",
 			wantErr: ErrInvalidURL,
 		},
@@ -330,6 +334,14 @@ var (
 		ID:      "MahmudRayed",
 		Data: map[string]string{
 			"channelID": "MahmudRayed",
+		},
+	}
+	wantMessengerMahmudRayed = &URL{
+		Service: Messenger,
+		Type:    "User",
+		ID:      "6585231744937052",
+		Data: map[string]string{
+			"username": "6585231744937052",
 		},
 	}
 )
