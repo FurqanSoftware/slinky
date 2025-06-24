@@ -46,6 +46,18 @@ slinky.Parse("https://github.com/hjr265")
 "linkedin.com"
 "www.linkedin.com"
 
+// Messenger
+"m.me"
+"www.m.me"
+
+// Reddit
+"reddit.com"
+"www.reddit.com"
+
+// Pinterest
+"pinterest.com"
+"www.pinterest.com"
+
 // Telegram
 "t.me"
 
