@@ -34,13 +34,13 @@ var (
 		"m.me":     decodeMessengerURL,
 		"www.m.me": decodeMessengerURL,
 
-		// Reddit
-		"reddit.com":     decodeRedditURL,
-		"www.reddit.com": decodeRedditURL,
-
 		// Pinterest
 		"pinterest.com":     decodePinterestURL,
 		"www.pinterest.com": decodePinterestURL,
+
+		// Reddit
+		"reddit.com":     decodeRedditURL,
+		"www.reddit.com": decodeRedditURL,
 
 		// Telegram
 		"t.me": decodeTelegramURL,
@@ -67,8 +67,8 @@ const (
 	Instagram   Service = "Instagram"
 	LinkedIn    Service = "LinkedIn"
 	Messenger   Service = "Messenger"
-	Reddit      Service = "Reddit"
 	Pinterest   Service = "Pinterest"
+	Reddit      Service = "Reddit"
 	Telegram    Service = "Telegram"
 	Twitter     Service = "Twitter"
 	YouTube     Service = "YouTube"
