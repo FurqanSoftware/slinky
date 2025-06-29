@@ -13,7 +13,7 @@ func decodePinterestURL(url *url.URL) (*URL, error) {
 		url.Scheme = "https"
 	}
 	if url.Scheme != "https" {
-		return nil, fmt.Errorf("%w: invald Pinterest scheme", ErrInvalidURL)
+		return nil, fmt.Errorf("%w: invalid Pinterest scheme", ErrInvalidURL)
 	}
 
 	if url.Host != "pinterest.com" && url.Host != "www.pinterest.com" {
