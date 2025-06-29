@@ -163,6 +163,14 @@ func TestParse(t *testing.T) {
 			in:      "https://www.linkedin.com/in/rayed152111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111/",
 			wantErr: ErrInvalidURL,
 		},
+		{
+			in:      "https://www.twitch.com/rayed152111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111/",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:   "https://www.twitch.com/rayed152/",
+			want: wantWithURL(wantTwitchRayed152, must(url.Parse("https://www.twitch.com/rayed152/"))),
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -342,6 +350,14 @@ var (
 		ID:      "6585231744937052",
 		Data: map[string]string{
 			"username": "6585231744937052",
+		},
+	}
+	wantTwitchRayed152 = &URL{
+		Service: Twitch,
+		Type:    "Channel",
+		ID:      "rayed152",
+		Data: map[string]string{
+			"username": "rayed152",
 		},
 	}
 )

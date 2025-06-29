@@ -30,6 +30,10 @@ var (
 		"linkedin.com":     decodeLinkedInURL,
 		"www.linkedin.com": decodeLinkedInURL,
 
+		// Twitch
+		"twitch.com":     decodeTwitchURL,
+		"www.twitch.com": decodeTwitchURL,
+
 		// Messenger
 		"m.me":     decodeMessengerURL,
 		"www.m.me": decodeMessengerURL,
@@ -66,6 +70,7 @@ const (
 	GitHub      Service = "GitHub"
 	Instagram   Service = "Instagram"
 	LinkedIn    Service = "LinkedIn"
+	Twitch      Service = "Twitch"
 	Messenger   Service = "Messenger"
 	Pinterest   Service = "Pinterest"
 	Reddit      Service = "Reddit"

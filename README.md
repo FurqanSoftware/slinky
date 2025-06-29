@@ -61,6 +61,10 @@ slinky.Parse("https://github.com/hjr265")
 // Telegram
 "t.me"
 
+// Twitch
+"twitch.com"
+"www.twitch.com"
+
 // Twitter
 "x.com"
 "www.x.com"
