@@ -1,8 +1,3 @@
-before_script:
-  - mkdir -p $GOPATH/src/git.furqansoftware.net/trinkets
-  - ln -s $CI_PROJECT_DIR $GOPATH/src/git.furqansoftware.net/trinkets/slinky
-  - cd $GOPATH/src/git.furqansoftware.net/trinkets/slinky
-
 stages:
   - test
 
@@ -15,7 +10,7 @@ test go-1.24:
     - go get .
     - go test -cover -coverprofile=profile.cov -v . | go-junit-report -out report.xml -iocopy -set-exit-code
     - $GOPATH/bin/gocover-cobertura < profile.cov > coverage.xml
-  coverage: '/coverage: [0-9]+.[0-9]+% of statements/'
+  coverage: "/coverage: [0-9]+.[0-9]+% of statements/"
   artifacts:
     reports:
       junit: report.xml
