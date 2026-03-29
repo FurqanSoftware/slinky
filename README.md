@@ -81,6 +81,10 @@ slinky.Parse("https://github.com/hjr265")
 "twitter.com"
 "www.twitter.com"
 
+// WhatsApp
+"wa.me"
+"www.wa.me"
+
 // YouTube
 "youtube.com"
 "www.youtube.com"

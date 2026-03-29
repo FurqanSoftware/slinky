@@ -65,6 +65,10 @@ var (
 		"twitter.com":     decodeTwitterURL,
 		"www.twitter.com": decodeTwitterURL,
 
+		// WhatsApp
+		"wa.me":     decodeWhatsAppURL,
+		"www.wa.me": decodeWhatsAppURL,
+
 		// YouTube
 		"youtube.com":       decodeYouTubeURL,
 		"www.youtube.com":   decodeYouTubeURL,
@@ -90,5 +94,6 @@ const (
 	Snapchat    Service = "Snapchat"
 	Telegram    Service = "Telegram"
 	Twitter     Service = "Twitter"
+	WhatsApp    Service = "WhatsApp"
 	YouTube     Service = "YouTube"
 )

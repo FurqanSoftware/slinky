@@ -191,6 +191,22 @@ func TestParse(t *testing.T) {
 			in:      "https://www.snapchat.com/hjr265",
 			wantErr: ErrInvalidURL,
 		},
+		{
+			in:   "https://wa.me/1234567890",
+			want: wantWithURL(wantWhatsApp1234567890, must(url.Parse("https://wa.me/1234567890"))),
+		},
+		{
+			in:   "https://wa.me/+1234567890/",
+			want: wantWithURL(wantWhatsAppPlus1234567890, must(url.Parse("https://wa.me/+1234567890/"))),
+		},
+		{
+			in:      "https://wa.me/123456",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://wa.me/12345678901234567",
+			wantErr: ErrInvalidURL,
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -378,6 +394,22 @@ var (
 		ID:      "hjr265",
 		Data: map[string]string{
 			"username": "hjr265",
+		},
+	}
+	wantWhatsApp1234567890 = &URL{
+		Service: WhatsApp,
+		Type:    "Account",
+		ID:      "1234567890",
+		Data: map[string]string{
+			"phoneNumber": "1234567890",
+		},
+	}
+	wantWhatsAppPlus1234567890 = &URL{
+		Service: WhatsApp,
+		Type:    "Account",
+		ID:      "+1234567890",
+		Data: map[string]string{
+			"phoneNumber": "+1234567890",
 		},
 	}
 	wantTwitchRayed152 = &URL{
