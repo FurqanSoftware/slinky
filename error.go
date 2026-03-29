@@ -3,7 +3,12 @@ package slinky
 import "errors"
 
 var (
-	ErrNotAbsolute    = errors.New("url is not absolute")
+	// ErrNotAbsolute is returned when the URL does not have a scheme.
+	ErrNotAbsolute = errors.New("url is not absolute")
+
+	// ErrUnknownService is returned when the URL does not match any known social media service.
 	ErrUnknownService = errors.New("url belongs to an unknown service")
-	ErrInvalidURL     = errors.New("invalid URL")
+
+	// ErrInvalidURL is returned when the URL matches a known service but has an invalid format.
+	ErrInvalidURL = errors.New("invalid URL")
 )

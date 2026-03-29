@@ -61,8 +61,10 @@ var (
 	}
 )
 
+// Service identifies a social media service.
 type Service string
 
+// Supported social media services.
 const (
 	Facebook    Service = "Facebook"
 	FLOSSSocial Service = "FLOSSSocial"
