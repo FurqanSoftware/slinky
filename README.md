@@ -13,7 +13,7 @@ slinky.Parse("https://github.com/hjr265")
 // 		Service: slinky.GitHub,
 // 		Type:    "User",
 // 		ID:      "hjr265",
-// 		Data:    map[string]string{,
+// 		Data:    map[string]string{
 // 			"username": "hjr265",
 // 		},
 //	}
