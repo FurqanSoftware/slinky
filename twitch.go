@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// twtich Channel: ^https://www\.twitch.com/u/[A-Za-z0-9_]{4,25}/?$
+// Twitch Channel: ^https://www\.twitch.com/[A-Za-z0-9_]{4,25}/?$
 
 func decodeTwitchURL(url *url.URL) (*URL, error) {
 	if url.Scheme == "http" {
@@ -44,7 +44,7 @@ func decodeTwitchURL(url *url.URL) (*URL, error) {
 	}, nil
 }
 
-const twitchHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789_"
+const twitchHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
 
 func isNotTwitchHandleRune(r rune) bool {
 	return !strings.ContainsRune(twitchHandleAlpha, r)
