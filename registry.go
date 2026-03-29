@@ -42,6 +42,9 @@ var (
 		"linkedin.com":     decodeLinkedInURL,
 		"www.linkedin.com": decodeLinkedInURL,
 
+		// Toph
+		"toph.co": decodeTophURL,
+
 		// Tumblr
 		"tumblr.com":      decodeTumblrURL,
 		"www.tumblr.com":  decodeTumblrURL,
@@ -133,6 +136,7 @@ const (
 	Telegram    Service = "Telegram"
 	Threads     Service = "Threads"
 	TikTok      Service = "TikTok"
+	Toph        Service = "Toph"
 	Tumblr      Service = "Tumblr"
 	Twitch      Service = "Twitch"
 	Twitter     Service = "Twitter"

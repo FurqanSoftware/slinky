@@ -335,6 +335,34 @@ func TestParse(t *testing.T) {
 			in:   "https://hjr265.tumblr.com/",
 			want: wantWithURL(wantTumblrHjr265, must(url.Parse("https://hjr265.tumblr.com/"))),
 		},
+		{
+			in:   "https://toph.co/u/hjr265",
+			want: wantWithURL(wantTophHjr265, must(url.Parse("https://toph.co/u/hjr265"))),
+		},
+		{
+			in:   "https://toph.co/u/hjr265/",
+			want: wantWithURL(wantTophHjr265, must(url.Parse("https://toph.co/u/hjr265/"))),
+		},
+		{
+			in:      "https://toph.co/u/abc",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://toph.co/u/1hjr265",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://toph.co/u/hjr265_",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://toph.co/u/hjr.26.5",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://toph.co/hjr265",
+			wantErr: ErrInvalidURL,
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -547,6 +575,14 @@ var (
 		ID:      "hjr265",
 		Data: map[string]string{
 			"username": "hjr265",
+		},
+	}
+	wantTophHjr265 = &URL{
+		Service: Toph,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"handle": "hjr265",
 		},
 	}
 	wantTumblrHjr265 = &URL{

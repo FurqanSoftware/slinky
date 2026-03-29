@@ -97,6 +97,9 @@ slinky.Parse("https://github.com/hjr265")
 "t.me"
 "telegram.me"
 
+// Toph
+"toph.co"
+
 // Tumblr
 "tumblr.com"
 "www.tumblr.com"
