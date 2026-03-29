@@ -71,6 +71,10 @@ slinky.Parse("https://github.com/hjr265")
 "pinterest.com"
 "www.pinterest.com"
 
+// TikTok
+"tiktok.com"
+"www.tiktok.com"
+
 // Threads
 "threads.net"
 "www.threads.net"

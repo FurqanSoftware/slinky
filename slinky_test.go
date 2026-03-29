@@ -267,6 +267,22 @@ func TestParse(t *testing.T) {
 			in:      "https://steamcommunity.com/hjr265",
 			wantErr: ErrInvalidURL,
 		},
+		{
+			in:   "https://www.tiktok.com/@hjr265",
+			want: wantWithURL(wantTikTokHjr265, must(url.Parse("https://www.tiktok.com/@hjr265"))),
+		},
+		{
+			in:   "https://tiktok.com/@hjr265/",
+			want: wantWithURL(wantTikTokHjr265, must(url.Parse("https://tiktok.com/@hjr265/"))),
+		},
+		{
+			in:      "https://www.tiktok.com/hjr265",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://www.tiktok.com/@abcdefghijklmnopqrstuvwxy",
+			wantErr: ErrInvalidURL,
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -462,6 +478,14 @@ var (
 		ID:      "+1234567890",
 		Data: map[string]string{
 			"phoneNumber": "+1234567890",
+		},
+	}
+	wantTikTokHjr265 = &URL{
+		Service: TikTok,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
 		},
 	}
 	wantSteamHjr265 = &URL{

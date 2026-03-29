@@ -65,6 +65,10 @@ var (
 		"www.reddit.com": decodeRedditURL,
 		"old.reddit.com": decodeRedditURL,
 
+		// TikTok
+		"tiktok.com":     decodeTikTokURL,
+		"www.tiktok.com": decodeTikTokURL,
+
 		// Threads
 		"threads.net":     decodeThreadsURL,
 		"www.threads.net": decodeThreadsURL,
@@ -111,6 +115,7 @@ const (
 	Steam       Service = "Steam"
 	Telegram    Service = "Telegram"
 	Threads     Service = "Threads"
+	TikTok      Service = "TikTok"
 	Twitter     Service = "Twitter"
 	WhatsApp    Service = "WhatsApp"
 	YouTube     Service = "YouTube"
