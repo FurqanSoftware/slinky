@@ -22,6 +22,9 @@ slinky.Parse("https://github.com/hjr265")
 ## URLs Supported
 
 ``` go
+// Bluesky
+"bsky.app"
+
 // Facebook
 "facebook.com"
 "www.facebook.com"

@@ -207,6 +207,22 @@ func TestParse(t *testing.T) {
 			in:      "https://wa.me/12345678901234567",
 			wantErr: ErrInvalidURL,
 		},
+		{
+			in:   "https://bsky.app/profile/hjr265.bsky.social",
+			want: wantWithURL(wantBlueskyHjr265, must(url.Parse("https://bsky.app/profile/hjr265.bsky.social"))),
+		},
+		{
+			in:   "https://bsky.app/profile/hjr265.bsky.social/",
+			want: wantWithURL(wantBlueskyHjr265, must(url.Parse("https://bsky.app/profile/hjr265.bsky.social/"))),
+		},
+		{
+			in:      "https://bsky.app/profile/ab",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://bsky.app/hjr265.bsky.social",
+			wantErr: ErrInvalidURL,
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -394,6 +410,14 @@ var (
 		ID:      "hjr265",
 		Data: map[string]string{
 			"username": "hjr265",
+		},
+	}
+	wantBlueskyHjr265 = &URL{
+		Service: Bluesky,
+		Type:    "Profile",
+		ID:      "hjr265.bsky.social",
+		Data: map[string]string{
+			"handle": "hjr265.bsky.social",
 		},
 	}
 	wantWhatsApp1234567890 = &URL{

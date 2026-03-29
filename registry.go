@@ -13,6 +13,9 @@ var (
 		"m.facebook.com":     decodeFacebookURL,
 		"fb.me":              decodeFacebookURL,
 
+		// Bluesky
+		"bsky.app": decodeBlueskyURL,
+
 		// FLOSS.social
 		"floss.social": newMastodonURLDecoder(FLOSSSocial, "floss.social"),
 
@@ -81,6 +84,7 @@ type Service string
 
 // Supported social media services.
 const (
+	Bluesky     Service = "Bluesky"
 	Facebook    Service = "Facebook"
 	FLOSSSocial Service = "FLOSSSocial"
 	Fosstodon   Service = "Fosstodon"
