@@ -283,6 +283,50 @@ func TestParse(t *testing.T) {
 			in:      "https://www.tiktok.com/@abcdefghijklmnopqrstuvwxy",
 			wantErr: ErrInvalidURL,
 		},
+		{
+			in:   "https://kick.com/hjr265",
+			want: wantWithURL(wantKickHjr265, must(url.Parse("https://kick.com/hjr265"))),
+		},
+		{
+			in:   "https://www.kick.com/hjr265/",
+			want: wantWithURL(wantKickHjr265, must(url.Parse("https://www.kick.com/hjr265/"))),
+		},
+		{
+			in:      "https://kick.com/abc",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:   "https://mastodon.social/@hjr265",
+			want: wantWithURL(wantMastodonHjr265, must(url.Parse("https://mastodon.social/@hjr265"))),
+		},
+		{
+			in:   "https://open.spotify.com/user/hjr265",
+			want: wantWithURL(wantSpotifyHjr265, must(url.Parse("https://open.spotify.com/user/hjr265"))),
+		},
+		{
+			in:   "https://open.spotify.com/user/hjr265/",
+			want: wantWithURL(wantSpotifyHjr265, must(url.Parse("https://open.spotify.com/user/hjr265/"))),
+		},
+		{
+			in:      "https://open.spotify.com/hjr265",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:   "https://tumblr.com/hjr265",
+			want: wantWithURL(wantTumblrHjr265, must(url.Parse("https://tumblr.com/hjr265"))),
+		},
+		{
+			in:   "https://www.tumblr.com/hjr265/",
+			want: wantWithURL(wantTumblrHjr265, must(url.Parse("https://www.tumblr.com/hjr265/"))),
+		},
+		{
+			in:   "https://hjr265.tumblr.com",
+			want: wantWithURL(wantTumblrHjr265, must(url.Parse("https://hjr265.tumblr.com"))),
+		},
+		{
+			in:   "https://hjr265.tumblr.com/",
+			want: wantWithURL(wantTumblrHjr265, must(url.Parse("https://hjr265.tumblr.com/"))),
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -478,6 +522,39 @@ var (
 		ID:      "+1234567890",
 		Data: map[string]string{
 			"phoneNumber": "+1234567890",
+		},
+	}
+	wantKickHjr265 = &URL{
+		Service: Kick,
+		Type:    "Channel",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantMastodonHjr265 = &URL{
+		Service: Mastodon,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+			"platform": "Mastodon",
+		},
+	}
+	wantSpotifyHjr265 = &URL{
+		Service: Spotify,
+		Type:    "User",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantTumblrHjr265 = &URL{
+		Service: Tumblr,
+		Type:    "Blog",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
 		},
 	}
 	wantTikTokHjr265 = &URL{

@@ -22,9 +22,16 @@ var (
 		// Fostodon
 		"fosstodon.org": newMastodonURLDecoder(Fosstodon, "fosstodon.org"),
 
+		// Mastodon
+		"mastodon.social": newMastodonURLDecoder(Mastodon, "mastodon.social"),
+
 		// GitHub
 		"github.com":  decodeGitHubURL,
 		"*.github.io": decodeGitHubURL,
+
+		// Kick
+		"kick.com":     decodeKickURL,
+		"www.kick.com": decodeKickURL,
 
 		// Instagram
 		"instagram.com":       decodeInstagramURL,
@@ -34,6 +41,11 @@ var (
 		// LinkedIn
 		"linkedin.com":     decodeLinkedInURL,
 		"www.linkedin.com": decodeLinkedInURL,
+
+		// Tumblr
+		"tumblr.com":      decodeTumblrURL,
+		"www.tumblr.com":  decodeTumblrURL,
+		"*.tumblr.com":    decodeTumblrURL,
 
 		// Twitch
 		"twitch.tv":      decodeTwitchURL,
@@ -59,6 +71,9 @@ var (
 		// Steam
 		"steamcommunity.com":     decodeSteamURL,
 		"www.steamcommunity.com": decodeSteamURL,
+
+		// Spotify
+		"open.spotify.com": decodeSpotifyURL,
 
 		// Reddit
 		"reddit.com":     decodeRedditURL,
@@ -105,17 +120,21 @@ const (
 	Fosstodon   Service = "Fosstodon"
 	GitHub      Service = "GitHub"
 	Instagram   Service = "Instagram"
+	Kick        Service = "Kick"
 	LinkedIn    Service = "LinkedIn"
-	Twitch      Service = "Twitch"
+	Mastodon    Service = "Mastodon"
 	Messenger   Service = "Messenger"
 	Pinterest   Service = "Pinterest"
 	Reddit      Service = "Reddit"
 	Signal      Service = "Signal"
 	Snapchat    Service = "Snapchat"
+	Spotify     Service = "Spotify"
 	Steam       Service = "Steam"
 	Telegram    Service = "Telegram"
 	Threads     Service = "Threads"
 	TikTok      Service = "TikTok"
+	Tumblr      Service = "Tumblr"
+	Twitch      Service = "Twitch"
 	Twitter     Service = "Twitter"
 	WhatsApp    Service = "WhatsApp"
 	YouTube     Service = "YouTube"

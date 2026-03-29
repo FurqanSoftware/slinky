@@ -38,9 +38,16 @@ slinky.Parse("https://github.com/hjr265")
 // Fostodon
 "fosstodon.org"
 
+// Mastodon
+"mastodon.social"
+
 // GitHub
 "github.com"
 "*.github.io"
+
+// Kick
+"kick.com"
+"www.kick.com"
 
 // Instagram
 "instagram.com"
@@ -61,6 +68,9 @@ slinky.Parse("https://github.com/hjr265")
 // Snapchat
 "snapchat.com"
 "www.snapchat.com"
+
+// Spotify
+"open.spotify.com"
 
 // Reddit
 "reddit.com"
@@ -86,6 +96,11 @@ slinky.Parse("https://github.com/hjr265")
 // Telegram
 "t.me"
 "telegram.me"
+
+// Tumblr
+"tumblr.com"
+"www.tumblr.com"
+"*.tumblr.com"
 
 // Twitch
 "twitch.tv"
