@@ -336,6 +336,146 @@ func TestParse(t *testing.T) {
 			want: wantWithURL(wantTumblrHjr265, must(url.Parse("https://hjr265.tumblr.com/"))),
 		},
 		{
+			in:   "https://gitlab.com/hjr265",
+			want: wantWithURL(wantGitLabHjr265, must(url.Parse("https://gitlab.com/hjr265"))),
+		},
+		{
+			in:   "https://www.gitlab.com/hjr265/",
+			want: wantWithURL(wantGitLabHjr265, must(url.Parse("https://www.gitlab.com/hjr265/"))),
+		},
+		{
+			in:   "https://bitbucket.org/hjr265",
+			want: wantWithURL(wantBitbucketHjr265, must(url.Parse("https://bitbucket.org/hjr265"))),
+		},
+		{
+			in:   "https://bitbucket.org/hjr265/",
+			want: wantWithURL(wantBitbucketHjr265, must(url.Parse("https://bitbucket.org/hjr265/"))),
+		},
+		{
+			in:   "https://codeberg.org/hjr265",
+			want: wantWithURL(wantCodebergHjr265, must(url.Parse("https://codeberg.org/hjr265"))),
+		},
+		{
+			in:   "https://medium.com/@hjr265",
+			want: wantWithURL(wantMediumHjr265, must(url.Parse("https://medium.com/@hjr265"))),
+		},
+		{
+			in:   "https://www.medium.com/@hjr265/",
+			want: wantWithURL(wantMediumHjr265, must(url.Parse("https://www.medium.com/@hjr265/"))),
+		},
+		{
+			in:      "https://medium.com/hjr265",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:   "https://hjr265.substack.com",
+			want: wantWithURL(wantSubstackHjr265, must(url.Parse("https://hjr265.substack.com"))),
+		},
+		{
+			in:   "https://hjr265.substack.com/",
+			want: wantWithURL(wantSubstackHjr265, must(url.Parse("https://hjr265.substack.com/"))),
+		},
+		{
+			in:   "https://www.patreon.com/hjr265",
+			want: wantWithURL(wantPatreonHjr265, must(url.Parse("https://www.patreon.com/hjr265"))),
+		},
+		{
+			in:   "https://patreon.com/hjr265/",
+			want: wantWithURL(wantPatreonHjr265, must(url.Parse("https://patreon.com/hjr265/"))),
+		},
+		{
+			in:   "https://ko-fi.com/hjr265",
+			want: wantWithURL(wantKofiHjr265, must(url.Parse("https://ko-fi.com/hjr265"))),
+		},
+		{
+			in:      "https://ko-fi.com/ab",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:   "https://dribbble.com/hjr265",
+			want: wantWithURL(wantDribbbleHjr265, must(url.Parse("https://dribbble.com/hjr265"))),
+		},
+		{
+			in:   "https://www.dribbble.com/hjr265/",
+			want: wantWithURL(wantDribbbleHjr265, must(url.Parse("https://www.dribbble.com/hjr265/"))),
+		},
+		{
+			in:   "https://www.behance.net/hjr265",
+			want: wantWithURL(wantBehanceHjr265, must(url.Parse("https://www.behance.net/hjr265"))),
+		},
+		{
+			in:   "https://behance.net/hjr265/",
+			want: wantWithURL(wantBehanceHjr265, must(url.Parse("https://behance.net/hjr265/"))),
+		},
+		{
+			in:   "https://www.deviantart.com/hjr265",
+			want: wantWithURL(wantDeviantArtHjr265, must(url.Parse("https://www.deviantart.com/hjr265"))),
+		},
+		{
+			in:   "https://deviantart.com/hjr265/",
+			want: wantWithURL(wantDeviantArtHjr265, must(url.Parse("https://deviantart.com/hjr265/"))),
+		},
+		{
+			in:   "https://vimeo.com/hjr265",
+			want: wantWithURL(wantVimeoHjr265, must(url.Parse("https://vimeo.com/hjr265"))),
+		},
+		{
+			in:   "https://www.vimeo.com/hjr265/",
+			want: wantWithURL(wantVimeoHjr265, must(url.Parse("https://www.vimeo.com/hjr265/"))),
+		},
+		{
+			in:   "https://soundcloud.com/hjr265",
+			want: wantWithURL(wantSoundCloudHjr265, must(url.Parse("https://soundcloud.com/hjr265"))),
+		},
+		{
+			in:   "https://www.soundcloud.com/hjr265/",
+			want: wantWithURL(wantSoundCloudHjr265, must(url.Parse("https://www.soundcloud.com/hjr265/"))),
+		},
+		{
+			in:   "https://hjr265.bandcamp.com",
+			want: wantWithURL(wantBandcampHjr265, must(url.Parse("https://hjr265.bandcamp.com"))),
+		},
+		{
+			in:   "https://hjr265.bandcamp.com/",
+			want: wantWithURL(wantBandcampHjr265, must(url.Parse("https://hjr265.bandcamp.com/"))),
+		},
+		{
+			in:   "https://letterboxd.com/hjr265",
+			want: wantWithURL(wantLetterboxdHjr265, must(url.Parse("https://letterboxd.com/hjr265"))),
+		},
+		{
+			in:   "https://www.letterboxd.com/hjr265/",
+			want: wantWithURL(wantLetterboxdHjr265, must(url.Parse("https://www.letterboxd.com/hjr265/"))),
+		},
+		{
+			in:   "https://www.goodreads.com/user/show/12345678",
+			want: wantWithURL(wantGoodreads12345678, must(url.Parse("https://www.goodreads.com/user/show/12345678"))),
+		},
+		{
+			in:   "https://goodreads.com/user/show/12345678/",
+			want: wantWithURL(wantGoodreads12345678, must(url.Parse("https://goodreads.com/user/show/12345678/"))),
+		},
+		{
+			in:      "https://goodreads.com/user/12345678",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:   "https://sr.ht/~hjr265",
+			want: wantWithURL(wantSourcehutHjr265, must(url.Parse("https://sr.ht/~hjr265"))),
+		},
+		{
+			in:   "https://sr.ht/~hjr265/",
+			want: wantWithURL(wantSourcehutHjr265, must(url.Parse("https://sr.ht/~hjr265/"))),
+		},
+		{
+			in:      "https://sr.ht/~a",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://sr.ht/hjr265",
+			wantErr: ErrInvalidURL,
+		},
+		{
 			in:   "https://toph.co/u/hjr265",
 			want: wantWithURL(wantTophHjr265, must(url.Parse("https://toph.co/u/hjr265"))),
 		},
@@ -550,6 +690,134 @@ var (
 		ID:      "+1234567890",
 		Data: map[string]string{
 			"phoneNumber": "+1234567890",
+		},
+	}
+	wantGitLabHjr265 = &URL{
+		Service: GitLab,
+		Type:    "User",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantBitbucketHjr265 = &URL{
+		Service: Bitbucket,
+		Type:    "User",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantCodebergHjr265 = &URL{
+		Service: Codeberg,
+		Type:    "User",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantMediumHjr265 = &URL{
+		Service: Medium,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantSubstackHjr265 = &URL{
+		Service: Substack,
+		Type:    "Publication",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantPatreonHjr265 = &URL{
+		Service: Patreon,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantKofiHjr265 = &URL{
+		Service: Kofi,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantDribbbleHjr265 = &URL{
+		Service: Dribbble,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantBehanceHjr265 = &URL{
+		Service: Behance,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantDeviantArtHjr265 = &URL{
+		Service: DeviantArt,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantVimeoHjr265 = &URL{
+		Service: Vimeo,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantSoundCloudHjr265 = &URL{
+		Service: SoundCloud,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantBandcampHjr265 = &URL{
+		Service: Bandcamp,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantLetterboxdHjr265 = &URL{
+		Service: Letterboxd,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantSourcehutHjr265 = &URL{
+		Service: Sourcehut,
+		Type:    "User",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantGoodreads12345678 = &URL{
+		Service: Goodreads,
+		Type:    "Profile",
+		ID:      "12345678",
+		Data: map[string]string{
+			"userID": "12345678",
 		},
 	}
 	wantKickHjr265 = &URL{

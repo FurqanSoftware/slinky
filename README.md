@@ -22,8 +22,29 @@ slinky.Parse("https://github.com/hjr265")
 ## URLs Supported
 
 ``` go
+// Bandcamp
+"*.bandcamp.com"
+
+// Behance
+"behance.net"
+"www.behance.net"
+
+// Bitbucket
+"bitbucket.org"
+
 // Bluesky
 "bsky.app"
+
+// Codeberg
+"codeberg.org"
+
+// DeviantArt
+"deviantart.com"
+"www.deviantart.com"
+
+// Dribbble
+"dribbble.com"
+"www.dribbble.com"
 
 // Facebook
 "facebook.com"
@@ -45,22 +66,45 @@ slinky.Parse("https://github.com/hjr265")
 "github.com"
 "*.github.io"
 
+// GitLab
+"gitlab.com"
+"www.gitlab.com"
+
+// Goodreads
+"goodreads.com"
+"www.goodreads.com"
+
 // Kick
 "kick.com"
 "www.kick.com"
+
+// Ko-fi
+"ko-fi.com"
 
 // Instagram
 "instagram.com"
 "www.instagram.com"
 "m.instagram.com"
 
+// Letterboxd
+"letterboxd.com"
+"www.letterboxd.com"
+
 // LinkedIn
 "linkedin.com"
 "www.linkedin.com"
 
+// Medium
+"medium.com"
+"www.medium.com"
+
 // Messenger
 "m.me"
 "www.m.me"
+
+// Patreon
+"patreon.com"
+"www.patreon.com"
 
 // Signal
 "signal.me"
@@ -69,8 +113,18 @@ slinky.Parse("https://github.com/hjr265")
 "snapchat.com"
 "www.snapchat.com"
 
+// Sourcehut
+"sr.ht"
+
+// SoundCloud
+"soundcloud.com"
+"www.soundcloud.com"
+
 // Spotify
 "open.spotify.com"
+
+// Substack
+"*.substack.com"
 
 // Reddit
 "reddit.com"
@@ -80,6 +134,10 @@ slinky.Parse("https://github.com/hjr265")
 // Pinterest
 "pinterest.com"
 "www.pinterest.com"
+
+// Vimeo
+"vimeo.com"
+"www.vimeo.com"
 
 // TikTok
 "tiktok.com"
