@@ -49,9 +49,16 @@ var (
 		"pinterest.com":     decodePinterestURL,
 		"www.pinterest.com": decodePinterestURL,
 
+		// Signal
+		"signal.me": decodeSignalURL,
+
 		// Snapchat
 		"snapchat.com":     decodeSnapchatURL,
 		"www.snapchat.com": decodeSnapchatURL,
+
+		// Steam
+		"steamcommunity.com":     decodeSteamURL,
+		"www.steamcommunity.com": decodeSteamURL,
 
 		// Reddit
 		"reddit.com":     decodeRedditURL,
@@ -99,7 +106,9 @@ const (
 	Messenger   Service = "Messenger"
 	Pinterest   Service = "Pinterest"
 	Reddit      Service = "Reddit"
+	Signal      Service = "Signal"
 	Snapchat    Service = "Snapchat"
+	Steam       Service = "Steam"
 	Telegram    Service = "Telegram"
 	Threads     Service = "Threads"
 	Twitter     Service = "Twitter"

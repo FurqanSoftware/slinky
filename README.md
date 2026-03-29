@@ -55,6 +55,9 @@ slinky.Parse("https://github.com/hjr265")
 "m.me"
 "www.m.me"
 
+// Signal
+"signal.me"
+
 // Snapchat
 "snapchat.com"
 "www.snapchat.com"
@@ -71,6 +74,10 @@ slinky.Parse("https://github.com/hjr265")
 // Threads
 "threads.net"
 "www.threads.net"
+
+// Steam
+"steamcommunity.com"
+"www.steamcommunity.com"
 
 // Telegram
 "t.me"

@@ -239,6 +239,34 @@ func TestParse(t *testing.T) {
 			in:      "https://www.threads.net/@abcdefghijklmnopqrstuvwxyz12345",
 			wantErr: ErrInvalidURL,
 		},
+		{
+			in:   "https://signal.me/#p/+1234567890",
+			want: wantWithURL(wantSignal1234567890, must(url.Parse("https://signal.me/#p/+1234567890"))),
+		},
+		{
+			in:      "https://signal.me/#p/123456",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://signal.me/#x/+1234567890",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:   "https://steamcommunity.com/id/hjr265",
+			want: wantWithURL(wantSteamHjr265, must(url.Parse("https://steamcommunity.com/id/hjr265"))),
+		},
+		{
+			in:   "https://steamcommunity.com/id/hjr265/",
+			want: wantWithURL(wantSteamHjr265, must(url.Parse("https://steamcommunity.com/id/hjr265/"))),
+		},
+		{
+			in:      "https://steamcommunity.com/id/a",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://steamcommunity.com/hjr265",
+			wantErr: ErrInvalidURL,
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -422,6 +450,22 @@ var (
 	}
 	wantSnapchatHjr265 = &URL{
 		Service: Snapchat,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantSignal1234567890 = &URL{
+		Service: Signal,
+		Type:    "Account",
+		ID:      "+1234567890",
+		Data: map[string]string{
+			"phoneNumber": "+1234567890",
+		},
+	}
+	wantSteamHjr265 = &URL{
+		Service: Steam,
 		Type:    "Profile",
 		ID:      "hjr265",
 		Data: map[string]string{
