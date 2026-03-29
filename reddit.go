@@ -15,7 +15,7 @@ func decodeRedditURL(url *url.URL) (*URL, error) {
 		url.Scheme = "https"
 	}
 	if url.Scheme != "https" {
-		return nil, fmt.Errorf("%w: invald Reddit scheme", ErrInvalidURL)
+		return nil, fmt.Errorf("%w: invalid Reddit scheme", ErrInvalidURL)
 	}
 
 	if url.Host != "reddit.com" && url.Host != "www.reddit.com" {
@@ -57,7 +57,7 @@ func decodeRedditURL(url *url.URL) (*URL, error) {
 	}, nil
 }
 
-const redditHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789_-"
+const redditHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-"
 
 func isNotRedditHandleRune(r rune) bool {
 	return !strings.ContainsRune(redditHandleAlpha, r)
