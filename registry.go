@@ -46,6 +46,10 @@ var (
 		"pinterest.com":     decodePinterestURL,
 		"www.pinterest.com": decodePinterestURL,
 
+		// Snapchat
+		"snapchat.com":     decodeSnapchatURL,
+		"www.snapchat.com": decodeSnapchatURL,
+
 		// Reddit
 		"reddit.com":     decodeRedditURL,
 		"www.reddit.com": decodeRedditURL,
@@ -83,6 +87,7 @@ const (
 	Messenger   Service = "Messenger"
 	Pinterest   Service = "Pinterest"
 	Reddit      Service = "Reddit"
+	Snapchat    Service = "Snapchat"
 	Telegram    Service = "Telegram"
 	Twitter     Service = "Twitter"
 	YouTube     Service = "YouTube"

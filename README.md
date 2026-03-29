@@ -52,6 +52,10 @@ slinky.Parse("https://github.com/hjr265")
 "m.me"
 "www.m.me"
 
+// Snapchat
+"snapchat.com"
+"www.snapchat.com"
+
 // Reddit
 "reddit.com"
 "www.reddit.com"

@@ -171,6 +171,26 @@ func TestParse(t *testing.T) {
 			in:   "https://www.twitch.com/rayed152/",
 			want: wantWithURL(wantTwitchRayed152, must(url.Parse("https://www.twitch.com/rayed152/"))),
 		},
+		{
+			in:   "https://www.snapchat.com/add/hjr265",
+			want: wantWithURL(wantSnapchatHjr265, must(url.Parse("https://www.snapchat.com/add/hjr265"))),
+		},
+		{
+			in:   "https://snapchat.com/add/hjr265/",
+			want: wantWithURL(wantSnapchatHjr265, must(url.Parse("https://snapchat.com/add/hjr265/"))),
+		},
+		{
+			in:      "https://www.snapchat.com/add/ab",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://www.snapchat.com/add/abcdefghijklmnop",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://www.snapchat.com/hjr265",
+			wantErr: ErrInvalidURL,
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -350,6 +370,14 @@ var (
 		ID:      "6585231744937052",
 		Data: map[string]string{
 			"username": "6585231744937052",
+		},
+	}
+	wantSnapchatHjr265 = &URL{
+		Service: Snapchat,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
 		},
 	}
 	wantTwitchRayed152 = &URL{
