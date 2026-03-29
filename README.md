@@ -68,6 +68,10 @@ slinky.Parse("https://github.com/hjr265")
 "pinterest.com"
 "www.pinterest.com"
 
+// Threads
+"threads.net"
+"www.threads.net"
+
 // Telegram
 "t.me"
 "telegram.me"

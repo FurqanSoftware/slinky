@@ -58,6 +58,10 @@ var (
 		"www.reddit.com": decodeRedditURL,
 		"old.reddit.com": decodeRedditURL,
 
+		// Threads
+		"threads.net":     decodeThreadsURL,
+		"www.threads.net": decodeThreadsURL,
+
 		// Telegram
 		"t.me":          decodeTelegramURL,
 		"telegram.me":   decodeTelegramURL,
@@ -97,6 +101,7 @@ const (
 	Reddit      Service = "Reddit"
 	Snapchat    Service = "Snapchat"
 	Telegram    Service = "Telegram"
+	Threads     Service = "Threads"
 	Twitter     Service = "Twitter"
 	WhatsApp    Service = "WhatsApp"
 	YouTube     Service = "YouTube"

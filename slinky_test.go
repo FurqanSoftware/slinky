@@ -223,6 +223,22 @@ func TestParse(t *testing.T) {
 			in:      "https://bsky.app/hjr265.bsky.social",
 			wantErr: ErrInvalidURL,
 		},
+		{
+			in:   "https://www.threads.net/@hjr265",
+			want: wantWithURL(wantThreadsHjr265, must(url.Parse("https://www.threads.net/@hjr265"))),
+		},
+		{
+			in:   "https://threads.net/@hjr265/",
+			want: wantWithURL(wantThreadsHjr265, must(url.Parse("https://threads.net/@hjr265/"))),
+		},
+		{
+			in:      "https://www.threads.net/hjr265",
+			wantErr: ErrInvalidURL,
+		},
+		{
+			in:      "https://www.threads.net/@abcdefghijklmnopqrstuvwxyz12345",
+			wantErr: ErrInvalidURL,
+		},
 	} {
 		t.Run(c.in, func(t *testing.T) {
 			got, err := Parse(c.in)
@@ -406,6 +422,14 @@ var (
 	}
 	wantSnapchatHjr265 = &URL{
 		Service: Snapchat,
+		Type:    "Profile",
+		ID:      "hjr265",
+		Data: map[string]string{
+			"username": "hjr265",
+		},
+	}
+	wantThreadsHjr265 = &URL{
+		Service: Threads,
 		Type:    "Profile",
 		ID:      "hjr265",
 		Data: map[string]string{
