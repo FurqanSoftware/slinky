@@ -16,7 +16,7 @@ func decodeYouTubeURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid YouTube scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "youtube.com" && url.Host != "www.youtube.com" {
+	if url.Host != "youtube.com" && url.Host != "www.youtube.com" && url.Host != "m.youtube.com" {
 		return nil, fmt.Errorf("%w: invalid YouTube host", ErrInvalidURL)
 	}
 

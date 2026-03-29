@@ -26,6 +26,7 @@ slinky.Parse("https://github.com/hjr265")
 "facebook.com"
 "www.facebook.com"
 "web.facebook.com"
+"m.facebook.com"
 "fb.me"
 
 // FLOSS.social
@@ -41,6 +42,7 @@ slinky.Parse("https://github.com/hjr265")
 // Instagram
 "instagram.com"
 "www.instagram.com"
+"m.instagram.com"
 
 // LinkedIn
 "linkedin.com"
@@ -53,6 +55,7 @@ slinky.Parse("https://github.com/hjr265")
 // Reddit
 "reddit.com"
 "www.reddit.com"
+"old.reddit.com"
 
 // Pinterest
 "pinterest.com"
@@ -60,6 +63,7 @@ slinky.Parse("https://github.com/hjr265")
 
 // Telegram
 "t.me"
+"telegram.me"
 
 // Twitch
 "twitch.tv"
@@ -76,6 +80,7 @@ slinky.Parse("https://github.com/hjr265")
 // YouTube
 "youtube.com"
 "www.youtube.com"
+"m.youtube.com"
 ```
 
 ## Contributing

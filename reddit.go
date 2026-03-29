@@ -18,7 +18,7 @@ func decodeRedditURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid Reddit scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "reddit.com" && url.Host != "www.reddit.com" {
+	if url.Host != "reddit.com" && url.Host != "www.reddit.com" && url.Host != "old.reddit.com" {
 		return nil, fmt.Errorf("%w: invalid Reddit host", ErrInvalidURL)
 	}
 

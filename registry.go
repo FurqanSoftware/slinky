@@ -7,10 +7,11 @@ type decodeURLFunc func(*url.URL) (*URL, error)
 var (
 	decodeURLFuncs = map[string]decodeURLFunc{
 		// Facebook
-		"facebook.com":     decodeFacebookURL,
-		"www.facebook.com": decodeFacebookURL,
-		"web.facebook.com": decodeFacebookURL,
-		"fb.me":            decodeFacebookURL,
+		"facebook.com":       decodeFacebookURL,
+		"www.facebook.com":   decodeFacebookURL,
+		"web.facebook.com":   decodeFacebookURL,
+		"m.facebook.com":     decodeFacebookURL,
+		"fb.me":              decodeFacebookURL,
 
 		// FLOSS.social
 		"floss.social": newMastodonURLDecoder(FLOSSSocial, "floss.social"),
@@ -23,8 +24,9 @@ var (
 		"*.github.io": decodeGitHubURL,
 
 		// Instagram
-		"instagram.com":     decodeInstagramURL,
-		"www.instagram.com": decodeInstagramURL,
+		"instagram.com":       decodeInstagramURL,
+		"www.instagram.com":   decodeInstagramURL,
+		"m.instagram.com":     decodeInstagramURL,
 
 		// LinkedIn
 		"linkedin.com":     decodeLinkedInURL,
@@ -47,9 +49,11 @@ var (
 		// Reddit
 		"reddit.com":     decodeRedditURL,
 		"www.reddit.com": decodeRedditURL,
+		"old.reddit.com": decodeRedditURL,
 
 		// Telegram
-		"t.me": decodeTelegramURL,
+		"t.me":          decodeTelegramURL,
+		"telegram.me":   decodeTelegramURL,
 
 		// Twitter
 		"x.com":           decodeTwitterURL,
@@ -58,8 +62,9 @@ var (
 		"www.twitter.com": decodeTwitterURL,
 
 		// YouTube
-		"youtube.com":     decodeYouTubeURL,
-		"www.youtube.com": decodeYouTubeURL,
+		"youtube.com":       decodeYouTubeURL,
+		"www.youtube.com":   decodeYouTubeURL,
+		"m.youtube.com":     decodeYouTubeURL,
 	}
 )
 

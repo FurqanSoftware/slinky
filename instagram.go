@@ -16,7 +16,7 @@ func decodeInstagramURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid Instagram scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "instagram.com" && url.Host != "www.instagram.com" {
+	if url.Host != "instagram.com" && url.Host != "www.instagram.com" && url.Host != "m.instagram.com" {
 		return nil, fmt.Errorf("%w: invalid Instagram host", ErrInvalidURL)
 	}
 

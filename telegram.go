@@ -17,7 +17,7 @@ func decodeTelegramURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid Telegram scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "t.me" {
+	if url.Host != "t.me" && url.Host != "telegram.me" {
 		return nil, fmt.Errorf("%w: invalid Telegram host", ErrInvalidURL)
 	}
 

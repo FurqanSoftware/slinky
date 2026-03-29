@@ -19,7 +19,7 @@ func decodeFacebookURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid Facebook scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "facebook.com" && url.Host != "www.facebook.com" && url.Host != "web.facebook.com" && url.Host != "fb.me" {
+	if url.Host != "facebook.com" && url.Host != "www.facebook.com" && url.Host != "web.facebook.com" && url.Host != "m.facebook.com" && url.Host != "fb.me" {
 		return nil, fmt.Errorf("%w: invalid Facebook host", ErrInvalidURL)
 	}
 
