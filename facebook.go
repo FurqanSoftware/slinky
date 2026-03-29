@@ -67,7 +67,7 @@ func decodeFacebookURL(url *url.URL) (*URL, error) {
 	}
 }
 
-const facebookHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789."
+const facebookHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789."
 
 func isNotFacebookHandleRune(r rune) bool {
 	return !strings.ContainsRune(facebookHandleAlpha, r)

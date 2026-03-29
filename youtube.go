@@ -46,7 +46,7 @@ func decodeYouTubeURL(url *url.URL) (*URL, error) {
 	}, nil
 }
 
-const youTubeHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789-_"
+const youTubeHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
 
 func isNotYouTubeHandleRune(r rune) bool {
 	return !strings.ContainsRune(youTubeHandleAlpha, r)

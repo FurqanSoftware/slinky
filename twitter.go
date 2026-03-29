@@ -44,7 +44,7 @@ func decodeTwitterURL(url *url.URL) (*URL, error) {
 	}, nil
 }
 
-const twitterHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789_"
+const twitterHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
 
 func isNotTwitterHandleRune(r rune) bool {
 	return !strings.ContainsRune(twitterHandleAlpha, r)

@@ -44,7 +44,7 @@ func decodeMessengerURL(url *url.URL) (*URL, error) {
 	}, nil
 }
 
-const messengerHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789."
+const messengerHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789."
 
 func isNotMessengerHandleRune(r rune) bool {
 	return !strings.ContainsRune(messengerHandleAlpha, r)

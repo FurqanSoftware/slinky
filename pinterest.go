@@ -44,7 +44,7 @@ func decodePinterestURL(url *url.URL) (*URL, error) {
 	}, nil
 }
 
-const pinterestHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789."
+const pinterestHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789."
 
 func isNotPinterestHandleRune(r rune) bool {
 	return !strings.ContainsRune(pinterestHandleAlpha, r)

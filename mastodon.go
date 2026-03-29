@@ -47,7 +47,7 @@ func newMastodonURLDecoder(service Service, host string) decodeURLFunc {
 	}
 }
 
-const mastodonHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789_"
+const mastodonHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
 
 func isNotMastodonHandleRune(r rune) bool {
 	return !strings.ContainsRune(mastodonHandleAlpha, r)

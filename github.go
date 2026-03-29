@@ -59,7 +59,7 @@ func decodeGitHubURL(url *url.URL) (*URL, error) {
 	}
 }
 
-const githubHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789-"
+const githubHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-"
 
 func isNotGitHubHandleRune(r rune) bool {
 	return !strings.ContainsRune(githubHandleAlpha, r)

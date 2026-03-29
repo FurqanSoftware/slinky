@@ -44,7 +44,7 @@ func decodeLinkedInURL(url *url.URL) (*URL, error) {
 	}, nil
 }
 
-const linkedInHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789."
+const linkedInHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-"
 
 func isNotLinkedInHandleRune(r rune) bool {
 	return !strings.ContainsRune(linkedInHandleAlpha, r)

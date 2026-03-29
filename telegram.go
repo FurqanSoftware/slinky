@@ -71,7 +71,7 @@ func decodeTelegramURL(url *url.URL) (*URL, error) {
 	}
 }
 
-const telegramHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789_"
+const telegramHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
 
 func isNotTelegramHandleRune(r rune) bool {
 	return !strings.ContainsRune(telegramHandleAlpha, r)

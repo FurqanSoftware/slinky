@@ -44,7 +44,7 @@ func decodeInstagramURL(url *url.URL) (*URL, error) {
 	}, nil
 }
 
-const instagramHandleAlpha = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmonpqrstuvwxyz0123456789._"
+const instagramHandleAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._"
 
 func isNotInstagramHandleRune(r rune) bool {
 	return !strings.ContainsRune(instagramHandleAlpha, r)
