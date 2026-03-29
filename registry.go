@@ -31,6 +31,8 @@ var (
 		"www.linkedin.com": decodeLinkedInURL,
 
 		// Twitch
+		"twitch.tv":      decodeTwitchURL,
+		"www.twitch.tv":  decodeTwitchURL,
 		"twitch.com":     decodeTwitchURL,
 		"www.twitch.com": decodeTwitchURL,
 

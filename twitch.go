@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// Twitch Channel: ^https://www\.twitch.com/[A-Za-z0-9_]{4,25}/?$
+// Twitch Channel: ^https://(www\.)?twitch\.(tv|com)/[A-Za-z0-9_]{4,25}/?$
 
 func decodeTwitchURL(url *url.URL) (*URL, error) {
 	if url.Scheme == "http" {
@@ -16,7 +16,7 @@ func decodeTwitchURL(url *url.URL) (*URL, error) {
 		return nil, fmt.Errorf("%w: invalid Twitch scheme", ErrInvalidURL)
 	}
 
-	if url.Host != "twitch.com" && url.Host != "www.twitch.com" {
+	if url.Host != "twitch.tv" && url.Host != "www.twitch.tv" && url.Host != "twitch.com" && url.Host != "www.twitch.com" {
 		return nil, fmt.Errorf("%w: invalid Twitch host", ErrInvalidURL)
 	}
 

@@ -62,6 +62,8 @@ slinky.Parse("https://github.com/hjr265")
 "t.me"
 
 // Twitch
+"twitch.tv"
+"www.twitch.tv"
 "twitch.com"
 "www.twitch.com"
 
